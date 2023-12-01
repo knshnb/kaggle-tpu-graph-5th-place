@@ -1,0 +1,11 @@
+lr: 1.0e-3
+max_epochs: 16
+n_epoch_split: 1
+tile_batch_size: 128
+model_name: dimension-attention-gnn
+transformer_params:
+  config_hidden_dim: 256
+  n_layers: 2
+  n_head: 2
+n_each_cluster: 10000
+layout_train_data: []

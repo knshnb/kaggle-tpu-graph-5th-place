@@ -1,0 +1,5 @@
+train_data:
+- layout/xla/*/train/*.npz
+- layout/nlp/*/train/*.npz
+- layout/xla/*/valid/*.npz
+- layout/nlp/*/valid/*.npz

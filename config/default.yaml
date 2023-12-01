@@ -1,0 +1,30 @@
+lr: 1.0e-4
+weight_decay: 0.01
+data_ratio: 1.0
+small_n_config: 1000
+layout_batch_size: 4
+layout_sample_per_graph: 8
+tile_batch_size: 128
+tile_sample_per_graph: 32
+max_epochs: 2
+n_epoch_split: 4
+warmup_steps_ratio: 0.0
+precision: 32
+gradient_clip_val: 1.0
+opcode_embed_dim: 64
+mid_ch: 384
+use_pre_linear: true
+n_layer: 3
+concat_last_n: 1
+drop_edge_ratio: 0.1
+model_name: gnn
+conv_type: sage
+layout_override: true
+n_each_cluster: -1
+opcode_groups:
+- element-wise-unary
+layout_train_data:
+- layout/xla/*/train/*.npz
+- layout/nlp/*/train/*.npz
+tile_train_data:
+- tile/xla/train/*.npz

@@ -1,0 +1,4 @@
+pytorch-lightning==1.8.6
+torch_geometric==2.4.0
+transformers==4.35.2
+wandb==0.16.0

@@ -1,0 +1,3 @@
+max_epochs: 2
+data_ratio: 0.001
+small_n_config: 200
