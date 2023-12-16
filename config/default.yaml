@@ -16,7 +16,7 @@ mid_ch: 384
 use_pre_linear: true
 n_layer: 3
 concat_last_n: 1
-drop_edge_ratio: 0.1
+drop_edge_ratio_max: 0.15
 model_name: gnn
 conv_type: sage
 layout_override: true

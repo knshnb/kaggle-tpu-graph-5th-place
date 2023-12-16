@@ -1,3 +1,5 @@
+import random
+
 import torch
 import torch.nn.functional as F
 from torch_geometric.data import Batch
@@ -68,7 +70,8 @@ class GNN(torch.nn.Module):
             data = Batch.from_data_list(data_list)
             x = data.x
         xs = []
-        edge_index = dropout_edge(data.edge_index, p=self.cfg.drop_edge_ratio, training=self.training)[0]
+        drop_edge_ratio = random.uniform(0.0, self.cfg.drop_edge_ratio_max)
+        edge_index = dropout_edge(data.edge_index, p=drop_edge_ratio, training=self.training)[0]
         for i in range(len(self.convs)):
             x = torch.cat([self.convs[i](x, edge_index), self.rev_convs[i](x, torch.flip(edge_index, (0,)))], dim=-1)
             x = F.relu(x)
@@ -139,7 +142,8 @@ class DimensionAttentionGNN(torch.nn.Module):
         """(num_nodes * batch_size, in_ch) -> (num_nodes * batch_size, 1)"""
         if self.cfg.use_pre_linear:
             x = self.pre_linear(x)
-        edge_index = dropout_edge(edge_index, p=self.cfg.drop_edge_ratio, training=self.training)[0]
+        drop_edge_ratio = random.uniform(0.0, self.cfg.drop_edge_ratio_max)
+        edge_index = dropout_edge(edge_index, p=drop_edge_ratio, training=self.training)[0]
         rev_edge_index = torch.flip(edge_index, (0,))
         xs = []
         for i in range(len(self.convs)):
