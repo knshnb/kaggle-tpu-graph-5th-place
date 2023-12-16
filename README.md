@@ -1,6 +1,8 @@
 # 5th Place Solution of Kaggle Fast or Slow Competition
 This is knshnb's solution for ["Google - Fast or Slow? Predict AI Model Runtime"](https://www.kaggle.com/competitions/predict-ai-model-runtime)
 
+![](images/TPUGraphs-GNN.drawio.png)
+
 ## Run
 ### Dataset Preparetion
 1. Download the competition dataset under `input/`.
